@@ -4,11 +4,11 @@ const db = require('../../data/db-config')
 module.exports = {
   getPosts(user_id) {
     return db('posts')
-      .join('users', 'posts.user_id', '=' , 'users.id')
+      .join('users', 'posts.user_id', 'users.id')
       .where('user_id', user_id)
   },
   getAllPosts() {
     return db('posts')
-    .leftJoin('users', 'posts.user_id', '=' , 'users.id')
+      .leftJoin('users', 'posts.user_id', '=', 'users.id')
   }
 }
