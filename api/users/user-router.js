@@ -33,6 +33,10 @@ router.get("/:id", (req, res) => {
     });
 });
 
+router.get('/:id/posts', (req, res, next) => {
+
+})
+
 router.post("/", (req, res) => {
   const userData = req.body;
 
@@ -82,5 +86,9 @@ router.delete("/:id", (req, res) => {
       res.status(500).json({ message: "Failed to delete user" });
     });
 });
+
+router.use((err, req, res, next) => {
+  
+})
 
 module.exports = router;
