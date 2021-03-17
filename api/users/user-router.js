@@ -1,5 +1,5 @@
 const express = require("express");
-
+const User = require('./user-model');
 const db = require("../../data/db-config.js");
 
 const router = express.Router();
@@ -89,7 +89,7 @@ router.delete("/:id", (req, res) => {
     });
 });
 
-router.use((err, req, res, next) => {
+router.use((err, req, res, next) => { // eslint-disable-line
   res.status(500).json({
     message: err.message,
     stack: err.stack,
