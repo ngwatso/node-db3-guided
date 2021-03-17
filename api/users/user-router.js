@@ -34,7 +34,9 @@ router.get("/:id", (req, res) => {
 });
 
 router.get('/:id/posts', (req, res, next) => {
-
+  User.getPosts()
+    .then()
+    .catch(next)
 })
 
 router.post("/", (req, res) => {
@@ -88,7 +90,10 @@ router.delete("/:id", (req, res) => {
 });
 
 router.use((err, req, res, next) => {
-  
+  res.status(500).json({
+    message: err.message,
+    stack: err.stack,
+  })
 })
 
 module.exports = router;
