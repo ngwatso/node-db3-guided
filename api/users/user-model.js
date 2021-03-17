@@ -1,6 +1,8 @@
 // user-model
 module.exports = {
   getPosts(user_id) {
-    return Promise.resolve([2])
+    return db('posts')
+      .join('users', 'posts.user_id', 'users.id')
+      .where('user_id', user_id)
   },
 }
