@@ -1,6 +1,6 @@
 // user-model
 module.exports = {
-  getPosts(){
+  getPosts(user_id) {
     
   },
 }
