@@ -34,8 +34,8 @@ router.get("/:id", (req, res) => {
 });
 
 router.get('/:id/posts', (req, res, next) => {
-  User.getPosts()
-    .then()
+  User.getPosts(req.params.id)
+    .then(posts => res.json(posts))
     .catch(next)
 })
 
