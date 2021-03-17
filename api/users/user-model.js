@@ -7,4 +7,8 @@ module.exports = {
       .join('users', 'posts.user_id', '=' , 'users.id')
       .where('user_id', user_id)
   },
+  getAllPosts() {
+    return db('posts')
+    .leftJoin('users', 'posts.user_id', '=' , 'users.id')
+  }
 }
